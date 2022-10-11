@@ -1,18 +1,19 @@
-package be.pxl.ja.robbery;
+package be.pxl.ja.knapsack;
+
 
 import java.util.Collections;
 import java.util.List;
 
 public class KnapsackUtil {
 
-    public static void fill(Knapsack knapsack, Shop shop) {
-        List<Product> items = shop.getItems();
+    public static <T extends Comparable<T> & Item> void fill(Knapsack<T> knapsack, Inventory<T> inventory) {
+        List<T> items = inventory.getItems();
 
         Collections.sort(items);
 
-        for(Product product : items) {
+        for(T item : items) {
             try {
-                knapsack.add(product);
+                knapsack.add(item);
             } catch (KnapsackFullException e) {
                 System.out.println(e.getMessage());
                 break;

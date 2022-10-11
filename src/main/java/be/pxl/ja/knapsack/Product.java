@@ -1,6 +1,6 @@
-package be.pxl.ja.robbery;
+package be.pxl.ja.knapsack;
 
-public class Product implements Comparable<Product> {
+public class Product implements Item, Comparable<Product> {
 
     String name;
     double weight;
